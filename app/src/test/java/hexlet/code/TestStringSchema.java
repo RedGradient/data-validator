@@ -2,7 +2,8 @@ package hexlet.code;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TestStringSchema {
     @Test
@@ -10,10 +11,10 @@ public class TestStringSchema {
         var schema1 = new StringSchema();
         schema1.contains("good").contains("all things aim");
 
-        var text1 = "Every art and every inquiry, " +
-                "and similarly every action and pursuit, " +
-                "is thought to aim at some good; " +
-                "and for this reason the good has rightly been declared to be that at which all things aim.";
+        var text1 = "Every art and every inquiry, "
+                + "and similarly every action and pursuit, "
+                + "is thought to aim at some good; "
+                + "and for this reason the good has rightly been declared to be that at which all things aim.";
 
         assertTrue(schema1.isValid(text1));
 
@@ -35,7 +36,7 @@ public class TestStringSchema {
         assertFalse(schema1.isValid(""));
         assertFalse(schema1.isValid(null));
     }
-    
+
     @Test
     public void testMinLength() {
         var schema1 = new StringSchema();
