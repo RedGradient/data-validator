@@ -1,15 +1,15 @@
 package hexlet.code;
 
-
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.function.Predicate;
 
 public class BaseSchema {
-    protected ArrayList<Predicate<Object>> rules;
+    protected HashMap<String, Predicate<Object>> rules = new HashMap<>();
 
-    public boolean isValid(Object o) {
-        rules.stream().map()
-        return false;
-
+    public boolean isValid(Object object) {
+        return rules.values().stream()
+                .map(objectPredicate -> (objectPredicate.test(object)))
+                .reduce(Boolean::logicalAnd)
+                .orElse(true);
     }
 }

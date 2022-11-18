@@ -23,7 +23,6 @@ public class TestStringSchema {
         schema2.contains("goodbye");
         assertFalse(schema2.isValid(text2));
 
-        // special cases
         var schema3 = new StringSchema();
         assertTrue(schema3.isValid(""));
         assertTrue(schema3.isValid(null));
@@ -47,5 +46,17 @@ public class TestStringSchema {
 
         var text2 = "less than 15";
         assertFalse(schema1.isValid(text2));
+    }
+
+    @Test
+    public void testSnakeCall() {
+        var schema1 = new StringSchema();
+        assertTrue(schema1.minLength(3).isValid("house"));
+
+        var schema2 = new StringSchema();
+        assertTrue(schema2.contains("Harry").isValid("My name is Harry Potter"));
+
+        var schema3 = new StringSchema();
+        assertFalse(schema3.required().isValid(null));
     }
 }

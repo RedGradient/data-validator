@@ -1,38 +1,35 @@
 package hexlet.code;
 
-public class NumberSchema implements BaseSchema {
-    private boolean mustBeIncludedInRange = false;
-    private int begin;
-    private int end;
+import java.util.Objects;
+import java.util.function.Predicate;
 
-    private boolean required = false;
+public class NumberSchema extends BaseSchema {
+    private static final String REQUIRED = "REQUIRED";
+    private static final String POSITIVE = "POSITIVE";
+    private static final String RANGE = "RANGE";
 
-    private boolean mustBePositive = false;
 
-    public void positive() {
-        mustBePositive = true;
+    public NumberSchema positive() {
+        Predicate<Object> predicate = number -> ((int) number > 0);
+        rules.putIfAbsent(POSITIVE, predicate);
+
+        return this;
     }
 
-    public void required() {
-        required = true;
+    public NumberSchema required() {
+        Predicate<Object> predicate = Objects::nonNull;
+        rules.putIfAbsent(REQUIRED, predicate);
+
+        return this;
     }
 
-    public void range(int begin, int end) {
-        mustBeIncludedInRange = true;
-        this.begin = begin;
-        this.end = end;
-    }
+    public NumberSchema range(int begin, int end) {
+        Predicate<Object> predicate = object -> {
+            var number = (int) object;
+            return number >= begin && number <= end;
+        };
+        rules.put(RANGE, predicate);
 
-    public boolean isValid(Integer number) {
-        if (number == null) {
-            return !required;
-        }
-
-        if (mustBePositive && number <= 0) {
-            return false;
-        }
-
-        var isNumberInRange = (number >= begin && number <= end);
-        return !mustBeIncludedInRange || isNumberInRange;
+        return this;
     }
 }
