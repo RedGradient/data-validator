@@ -6,7 +6,7 @@ public class StringSchema {
 
     private final ArrayList<String> substrings = new ArrayList<>();
     private boolean required = false;
-    private boolean lengthLimiterIsActive = false;
+    private boolean limitLength = false;
     private int minLength = 0;
 
     public StringSchema contains(String text) {
@@ -19,16 +19,16 @@ public class StringSchema {
     }
 
     public void minLength(int count) {
-        lengthLimiterIsActive = true;
+        limitLength = true;
         minLength = count;
     }
 
     public boolean isValid(String text) {
-        if ((text == null || text.isEmpty())) {
+        if (text == null || text.isEmpty()) {
             return !required;
         }
 
-        if (lengthLimiterIsActive && text.length() < minLength) {
+        if (limitLength && text.length() < minLength) {
             return false;
         }
 
