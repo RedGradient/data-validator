@@ -8,11 +8,8 @@ public class BaseSchema {
     protected boolean required = false;
     protected HashMap<String, Predicate<Object>> rules = new HashMap<>();
 
-    BaseSchema() {
-
-    }
-
     protected boolean initialCheck(Object object) {
+        /* Here should be rules that should be checked before other rules */
         return true;
     }
 
