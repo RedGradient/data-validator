@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class MapSchema extends BaseSchema {
+public final class MapSchema extends BaseSchema {
     private static final String SIZEOF = "SIZEOF";
     private static final String SHAPE = "SHAPE";
 

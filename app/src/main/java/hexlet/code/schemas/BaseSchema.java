@@ -8,11 +8,15 @@ public class BaseSchema {
     protected boolean required = false;
     protected HashMap<String, Predicate<Object>> rules = new HashMap<>();
 
+    BaseSchema() {
+
+    }
+
     protected boolean initialCheck(Object object) {
         return true;
     }
 
-    public boolean isValid(Object object) {
+    public final boolean isValid(Object object) {
 
         if (object == null) {
             return !required;

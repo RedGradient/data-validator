@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.HashSet;
 import java.util.function.Predicate;
 
-public class StringSchema extends BaseSchema {
+public final class StringSchema extends BaseSchema {
     private static final String CONTAINS = "CONTAINS";
     private static final String MIN_LENGTH = "MIN_LENGTH";
     private static final String REQUIRED = "REQUIRED";
