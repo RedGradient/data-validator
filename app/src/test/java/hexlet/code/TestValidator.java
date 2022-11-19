@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.Schemas.MapSchema;
 import hexlet.code.Schemas.NumberSchema;
 import hexlet.code.Schemas.StringSchema;
 import org.junit.jupiter.api.Test;
@@ -20,5 +21,13 @@ public class TestValidator {
         var schema = validator.number();
 
         assertInstanceOf(NumberSchema.class, schema);
+    }
+
+    @Test
+    public void testMap() {
+        var validator = new Validator();
+        var schema = validator.map();
+
+        assertInstanceOf(MapSchema.class, schema);
     }
 }

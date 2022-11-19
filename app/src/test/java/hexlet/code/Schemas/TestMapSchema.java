@@ -32,4 +32,14 @@ public class TestMapSchema {
         map.put("key2", "value2");
         assertTrue(schema.isValid(map));
     }
+
+    @Test
+    public void testSnakeCall() {
+        var schema = new MapSchema();
+
+        assertFalse(schema.required().isValid(null));
+
+        Map<String, String> map = new HashMap<>();
+        assertFalse(schema.sizeof(2).isValid(map));
+    }
 }
