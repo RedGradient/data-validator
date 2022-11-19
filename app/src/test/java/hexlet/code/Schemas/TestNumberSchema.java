@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.Schemas;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;

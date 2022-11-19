@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.Schemas;
 
 import java.util.HashMap;
 import java.util.function.Predicate;

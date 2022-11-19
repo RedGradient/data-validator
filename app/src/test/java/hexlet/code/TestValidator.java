@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.Schemas.NumberSchema;
+import hexlet.code.Schemas.StringSchema;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 

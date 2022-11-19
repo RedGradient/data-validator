@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.Schemas;
 
 import java.util.Objects;
 import java.util.function.Predicate;
@@ -28,7 +28,7 @@ public class NumberSchema extends BaseSchema {
             var number = (int) object;
             return number >= begin && number <= end;
         };
-        rules.put(RANGE, predicate);
+        rules.putIfAbsent(RANGE, predicate);
 
         return this;
     }
