@@ -35,7 +35,6 @@ schema.contains("what").isValid("what does the fox say"); // true
 schema.contains("whatthe").isValid("what does the fox say"); // false
 
 schema.isValid("what does the fox say"); // false
-// уже false, так как добавлена ещё одна проверка contains("whatthe")
 ```
 
 ### NumberSchema
