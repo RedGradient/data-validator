@@ -8,7 +8,7 @@ public class NumberSchema extends BaseSchema {
 
     @Override
     protected boolean initialCheck(Object object) {
-        return object instanceof Number;
+        return object instanceof Integer;
     }
 
     public NumberSchema positive() {
