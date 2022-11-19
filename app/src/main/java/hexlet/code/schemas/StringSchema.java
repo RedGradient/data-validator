@@ -15,9 +15,6 @@ public class StringSchema extends BaseSchema {
 
         Predicate<Object> predicate = object -> {
             var string = (String) object;
-            if (string == null) {
-                return true;
-            }
             for (var substring : substrings) {
                 if (!string.contains(substring)) {
                     return false;
@@ -33,19 +30,17 @@ public class StringSchema extends BaseSchema {
     public StringSchema required() {
         Predicate<Object> predicate = object -> {
             var string = (String) object;
-            return string != null && !string.isEmpty();
+            return !string.isEmpty();
         };
         rules.putIfAbsent(REQUIRED, predicate);
 
+        required = true;
         return this;
     }
 
     public StringSchema minLength(int value) {
         Predicate<Object> predicate = object -> {
             var string = (String) object;
-            if (string == null) {
-                return true;
-            }
             return string.length() >= value;
         };
         rules.put(MIN_LENGTH, predicate);
