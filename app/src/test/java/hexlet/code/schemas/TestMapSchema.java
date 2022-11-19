@@ -1,4 +1,4 @@
-package hexlet.code.Schemas;
+package hexlet.code.schemas;
 
 import org.junit.jupiter.api.Test;
 
