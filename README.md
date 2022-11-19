@@ -20,7 +20,6 @@ Validator v = new Validator();
 StringSchema schema = v.string();
 
 schema.isValid(""); // true
-// Пока на вызван метод required(), null считается валидным
 schema.isValid(null); // true
 
 schema.required();
@@ -48,7 +47,6 @@ Validator v = new Validator();
 
 NumberSchema schema = v.number();
 
-// Пока на вызван метод required(), null считается валидным
 schema.isValid(null); // true
 schema.positive().isValid(null); // true
 
@@ -58,7 +56,6 @@ schema.isValid(null); // false
 schema.isValid(10) // true
 schema.isValid("5"); // false
 schema.isValid(-10); // false
-//  Ноль - не положительное число
 schema.isValid(0); // false
 
 schema.range(5, 10);
