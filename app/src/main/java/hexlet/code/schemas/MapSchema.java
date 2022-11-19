@@ -1,5 +1,6 @@
 package hexlet.code.schemas;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
@@ -7,6 +8,7 @@ import java.util.function.Predicate;
 public class MapSchema extends BaseSchema {
     private static final String REQUIRED = "REQUIRED";
     private static final String SIZEOF = "SIZEOF";
+    private static final String SHAPE = "SHAPE";
 
     public MapSchema required() {
         Predicate<Object> predicate = Objects::nonNull;
@@ -20,4 +22,19 @@ public class MapSchema extends BaseSchema {
         return this;
     }
 
+    public void shape(Map<String, BaseSchema> schemas) {
+        Predicate<Object> predicate = object -> {
+            var map = (Map) object;
+            for (var pair : schemas.entrySet()) {
+                var key = pair.getKey();
+                var schema = pair.getValue();
+                if (!schema.isValid(map.get(key))) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        rules.putIfAbsent(SHAPE, predicate);
+    }
 }

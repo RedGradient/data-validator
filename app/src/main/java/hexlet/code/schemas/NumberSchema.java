@@ -10,7 +10,13 @@ public class NumberSchema extends BaseSchema {
 
 
     public NumberSchema positive() {
-        Predicate<Object> predicate = number -> ((int) number > 0);
+        Predicate<Object> predicate = object -> {
+            var number = (Integer) object;
+            if (number == null) {
+                return true;
+            }
+            return number > 0;
+        };
         rules.putIfAbsent(POSITIVE, predicate);
 
         return this;
@@ -25,7 +31,10 @@ public class NumberSchema extends BaseSchema {
 
     public NumberSchema range(int begin, int end) {
         Predicate<Object> predicate = object -> {
-            var number = (int) object;
+            var number = (Integer) object;
+            if (number == null) {
+                return true;
+            }
             return number >= begin && number <= end;
         };
         rules.putIfAbsent(RANGE, predicate);
