@@ -31,7 +31,7 @@ public class NumberSchema extends BaseSchema {
             var number = (Integer) object;
             return number >= begin && number <= end;
         };
-        rules.putIfAbsent(RANGE, predicate);
+        rules.put(RANGE, predicate);
 
         return this;
     }
