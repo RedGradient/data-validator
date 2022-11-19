@@ -5,12 +5,10 @@ import java.util.function.Predicate;
 public class NumberSchema extends BaseSchema {
     private static final String POSITIVE = "POSITIVE";
     private static final String RANGE = "RANGE";
-    private static final String INITIAL = "INITIAL";
 
-
-    public NumberSchema() {
-        Predicate<Object> predicate = object -> object instanceof Integer;
-        rules.put(INITIAL, predicate);
+    @Override
+    protected boolean initialCheck(Object object) {
+        return object instanceof Number;
     }
 
     public NumberSchema positive() {
