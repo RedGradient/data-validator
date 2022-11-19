@@ -3,10 +3,15 @@ package hexlet.code.schemas;
 import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema {
-//    private static final String REQUIRED = "REQUIRED";
     private static final String POSITIVE = "POSITIVE";
     private static final String RANGE = "RANGE";
+    private static final String INITIAL = "INITIAL";
 
+
+    public NumberSchema() {
+        Predicate<Object> predicate = object -> object instanceof Integer;
+        rules.put(INITIAL, predicate);
+    }
 
     public NumberSchema positive() {
         Predicate<Object> predicate = object -> {
@@ -19,8 +24,6 @@ public class NumberSchema extends BaseSchema {
     }
 
     public NumberSchema required() {
-//        Predicate<Object> predicate = Objects::nonNull;
-//        rules.putIfAbsent(REQUIRED, predicate);
         required = true;
         return this;
     }

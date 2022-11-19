@@ -18,12 +18,5 @@ public class BaseSchema {
                 .reduce(Boolean::logicalAnd)
                 .orElse(true);
 
-//        ArrayList<Boolean> checks = new ArrayList<>();
-//        for (var rule : rules.values()) {
-//            var middleResult = rule.test(object);
-//            checks.add(middleResult);
-//        }
-//        var result = checks.stream().reduce(Boolean::logicalAnd).orElse(true);
-//        return result;
     }
 }

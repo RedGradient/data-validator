@@ -6,6 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TestNumberSchema {
     @Test
+    public void testStringProcessing() {
+        var schema = new NumberSchema();
+        assertFalse(schema.isValid("5"));
+    }
+
+    @Test
     public void testRequired() {
         var schema = new NumberSchema();
 
