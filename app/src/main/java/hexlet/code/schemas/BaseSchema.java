@@ -9,7 +9,9 @@ public class BaseSchema {
     protected HashMap<String, Predicate<Object>> rules = new HashMap<>();
 
     protected boolean initialCheck(Object object) {
-        /* Here should be rules that should be checked before other rules */
+        /**
+         * @param object
+         */
         return true;
     }
 
