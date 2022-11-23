@@ -22,7 +22,7 @@ public final class StringSchema extends BaseSchema {
             }
             return true;
         };
-        rules.putIfAbsent(CONTAINS, predicate);
+        addRule(CONTAINS, predicate);
 
         return this;
     }
@@ -32,7 +32,7 @@ public final class StringSchema extends BaseSchema {
             var string = (String) object;
             return !string.isEmpty();
         };
-        rules.putIfAbsent(REQUIRED, predicate);
+        addRule(REQUIRED, predicate);
 
         required = true;
         return this;
@@ -43,7 +43,7 @@ public final class StringSchema extends BaseSchema {
             var string = (String) object;
             return string.length() >= value;
         };
-        rules.put(MIN_LENGTH, predicate);
+        addRule(MIN_LENGTH, predicate);
 
         return this;
     }

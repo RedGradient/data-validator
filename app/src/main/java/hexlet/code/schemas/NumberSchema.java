@@ -16,7 +16,7 @@ public final class NumberSchema extends BaseSchema {
             var number = (Integer) object;
             return number > 0;
         };
-        rules.putIfAbsent(POSITIVE, predicate);
+        addRule(POSITIVE, predicate);
 
         return this;
     }
@@ -31,7 +31,7 @@ public final class NumberSchema extends BaseSchema {
             var number = (Integer) object;
             return number >= begin && number <= end;
         };
-        rules.put(RANGE, predicate);
+        addRule(RANGE, predicate);
 
         return this;
     }

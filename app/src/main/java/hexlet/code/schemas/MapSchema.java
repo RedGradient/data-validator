@@ -14,7 +14,7 @@ public final class MapSchema extends BaseSchema {
 
     public MapSchema sizeof(int value) {
         Predicate<Object> predicate = object -> ((Map) object).size() == value;
-        rules.putIfAbsent(SIZEOF, predicate);
+        addRule(SIZEOF, predicate);
         return this;
     }
 
@@ -31,6 +31,6 @@ public final class MapSchema extends BaseSchema {
             return true;
         };
 
-        rules.putIfAbsent(SHAPE, predicate);
+        addRule(SHAPE, predicate);
     }
 }

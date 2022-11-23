@@ -6,7 +6,11 @@ import java.util.function.Predicate;
 
 public class BaseSchema {
     protected boolean required = false;
-    protected HashMap<String, Predicate<Object>> rules = new HashMap<>();
+    private final HashMap<String, Predicate<Object>> rules = new HashMap<>();
+
+    protected void addRule(String rule, Predicate<Object> predicate) {
+        rules.put(rule, predicate);
+    }
 
     /**
      * @param object Object that should be checked for any rules
@@ -16,7 +20,7 @@ public class BaseSchema {
         return true;
     }
 
-    public final boolean isValid(Object object) {
+    protected final boolean isValid(Object object) {
 
         if (object == null) {
             return !required;
