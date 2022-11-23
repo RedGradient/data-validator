@@ -20,7 +20,7 @@ public class BaseSchema {
         return true;
     }
 
-    protected final boolean isValid(Object object) {
+    public final boolean isValid(Object object) {
 
         if (object == null) {
             return !required;
