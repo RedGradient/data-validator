@@ -8,6 +8,10 @@ public class BaseSchema {
     protected boolean required = false;
     private final HashMap<String, Predicate<Object>> rules = new HashMap<>();
 
+    /**
+     * @param rule Name of the rule
+     * @param predicate The rule that should be applied to the object
+     */
     protected void addRule(String rule, Predicate<Object> predicate) {
         rules.put(rule, predicate);
     }
