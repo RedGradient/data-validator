@@ -5,7 +5,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/18c11c3e4854549bcddd/test_coverage)](https://codeclimate.com/github/RedGradient/java-project-78/test_coverage)
 
 # Data Validator (Education Project)
-A simple validator library that checks the passed object according to the established rules and returns true or false.
+Java library that provides a validator object that checks the passed object according to the established rules and returns true or false.
 Validator can be used for String, Integer and Map objects.
 
 ## Examples
